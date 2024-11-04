@@ -5,7 +5,7 @@ import io from "socket.io-client"
 
 
 
-const SOCKET_SERVER = "https://react-and-websockets.onrender.com/"
+const SOCKET_SERVER = "https://react-and-websockets.onrender.com"
 const socket = io(SOCKET_SERVER)
 
 const Chatbox = () => {
