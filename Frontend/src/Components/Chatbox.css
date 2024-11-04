@@ -1,5 +1,6 @@
 .chat-container {
-  width: 300px;
+  width: 400px;
+  margin: auto;
   border: 1px solid #ddd;
   border-radius: 8px;
   display: flex;
@@ -27,6 +28,7 @@
 
 .chat-message {
   margin: 5px 0;
+  background-color: black;
   padding: 8px 12px;
   border-radius: 12px;
   max-width: 80%;
@@ -36,15 +38,18 @@
 .chat-message.sent{
   background-color: #4a76a8;
   color: white;
-  align-self: flex-end;
+  margin-right: 0;
   text-align: right;
+  float: right;
+  clear: both;
 }
 
 .chat-message.received {
   background-color: #e0e0e0;
   color: #333;
-  align-self: flex-start;
   text-align: left;
+  float:left;
+  clear: both;
 }
 
 .chat-input-container {
