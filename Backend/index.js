@@ -9,7 +9,7 @@ const cors = require("cors")
 
 const io = new Server(server, {
     cors:{
-        origin: 'https://react-and-websockets.vercel.app/', 
+        origin: 'https://react-and-websockets.vercel.app', 
         methods: ['GET', 'POST'], 
         credentials: true 
     }
