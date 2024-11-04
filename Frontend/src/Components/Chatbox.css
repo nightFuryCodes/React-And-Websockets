@@ -37,12 +37,14 @@
   background-color: #4a76a8;
   color: white;
   align-self: flex-end;
+  text-align: right;
 }
 
 .chat-message.received {
   background-color: #e0e0e0;
   color: #333;
   align-self: flex-start;
+  text-align: left;
 }
 
 .chat-input-container {
