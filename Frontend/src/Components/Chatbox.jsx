@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const SOCKET_SERVER = "https://react-and-websockets-mr8e.onrender.com/"
+const SOCKET_SERVER = "https://react-and-websockets-mr8e.onrender.com"
 const socket = io(SOCKET_SERVER, {
   withCredentials: true
 })
