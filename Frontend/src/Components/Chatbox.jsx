@@ -15,7 +15,7 @@ const Chatbox = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [welcome, setWelcome] = useState([])
-  const user = sessionStorage.getItem("username")
+  const user = "ashwin"
   const navigate = useNavigate()
 
 
