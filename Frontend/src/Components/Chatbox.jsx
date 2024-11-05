@@ -58,7 +58,7 @@ const Chatbox = () => {
 <>
 
     <div className="chat-container">
-    <div className="chat-header">Chat</div>
+    <div className="chat-header">ChitChat</div>
     <div className="chat-box">
       {messages.map((item, index) => (
 
