@@ -2,15 +2,22 @@
 import React, { useState, useEffect } from 'react';
 import './Chatbox.css'; // Import CSS for styling
 import io from "socket.io-client"
+import { useNavigate } from 'react-router-dom';
 
 
 
-const SOCKET_SERVER = "https://react-and-websockets.onrender.com"
-const socket = io(SOCKET_SERVER)
+const SOCKET_SERVER = "http://localhost:3000"
+const socket = io(SOCKET_SERVER, {
+  withCredentials: true
+})
 
 const Chatbox = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
+  const [welcome, setWelcome] = useState([])
+  const user = sessionStorage.getItem("username")
+  const navigate = useNavigate()
+
 
   function updateType(message){
     message.type = "received"
@@ -18,8 +25,11 @@ const Chatbox = () => {
 
 
     useEffect(()=>{
-      socket.on("server-message", (message)=>{
-        console.log(message)
+      if (user){
+      socket.emit("new-user", user)
+
+      socket.on("user-connected", (message)=>{
+        setMessages(prev=>[...prev, message])
       })
 
       socket.on("sent", data=>{
@@ -29,6 +39,10 @@ const Chatbox = () => {
         updateType(data)
         setMessages(prev=>[...prev, data])
       })
+    }
+      else{
+        navigate("/")
+      }
 
       return ()=>{
         socket.disconnect()
@@ -36,21 +50,23 @@ const Chatbox = () => {
     }, [])
 
     function sendMessage(){
-      socket.emit("user-message", message)
-      setMessage("")
+      socket.emit("user-message", {message})
+      setMessage("") 
     }
 
   return (
-  
+<>
+
     <div className="chat-container">
     <div className="chat-header">Chat</div>
     <div className="chat-box">
       {messages.map((item, index) => (
+
         <div
           key={index}
           className = {`chat-message ${item.type}`}
         >
-          {item.message}
+          {`${item.name}: ${item.message}`}
         </div>
       ))}
     </div>
@@ -68,6 +84,7 @@ const Chatbox = () => {
       </button>
     </div>
   </div>
+  </>
 );
 };
 
