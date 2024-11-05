@@ -15,12 +15,7 @@ function App() {
 
   return (
     <>
-  <Router>
-    <Routes>
-      <Route path = "/" element = {<Chatbox />} /> 
-{/*       <Route path = "/chats" element = {<Chatbox/>} />  */}
-    </Routes>
-  </Router>
+      <Chatbox />
     </>
   )
 }
