@@ -12,7 +12,7 @@ const cookieParser = require("cookie-parser")
 const key = "ashwin"
 const io = new Server(server, {
     cors:{
-        origin: 'https://react-and-websockets.vercel.app', 
+        origin: 'http://localhost:5173", 
         methods: ['GET', 'POST'], 
         credentials: true 
     }
