@@ -17,8 +17,8 @@ function App() {
     <>
   <Router>
     <Routes>
-      <Route path = "/" element = {<Join />} /> 
-      <Route path = "/chats" element = {<Chatbox/>} /> 
+      <Route path = "/" element = {<Chatbox />} /> 
+{/*       <Route path = "/chats" element = {<Chatbox/>} />  */}
     </Routes>
   </Router>
     </>
